@@ -66,8 +66,10 @@ HRESULT DemoApp::Initialize()
 
 		// The factory returns the current system DPI. This is also the value it will use
 		// to create its own windows.
-		m_pDirect2dFactory->GetDesktopDpi(&dpiX, &dpiY);
-
+		//m_pDirect2dFactory->GetDesktopDpi(&dpiX, &dpiY);
+		dpiX = (FLOAT)GetDpiForWindow(GetDesktopWindow());
+		dpiY = dpiX;
+		
 		// Create the window.
 		m_hwnd = CreateWindow(
 			L"D2DDemoApp",
